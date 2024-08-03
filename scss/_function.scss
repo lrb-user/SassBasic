@@ -1,0 +1,4 @@
+@function rem($value, $base: 10) {
+    $sum : $value / 10 * 1rem;    // $sum : 실측값(컴포넌트 값) / 기준값(디자인 시안 viewport) * 100vw
+    @return $sum;
+}
