@@ -1,5 +1,13 @@
 $gray33:#333; //색상은 전역변수가 아닌, 지역변수 즉 파일 내에서만 사용할 수 있게 선언해라.!
+$gray77:#777;
+$gray99:#999;
+$blue94:#94C0E9;
+$graybe:#bebebe;
+$grayf1:#f1f1f1;
 
+html{
+    font-size: 62.5%;
+}
 .heading-type1-1{
     @include text(#333, rem(20), 700, null, rem(-1));
 }
@@ -22,4 +30,157 @@ $gray33:#333; //색상은 전역변수가 아닌, 지역변수 즉 파일 내에
     border: rem(1) solid #bdbdbd;
     height: rem(48);
     padding: rem(12);
+}
+
+// content2
+// .table-type1-1{
+//     th{
+//         display:block;
+//     }
+//     td{
+//         border-bottom: 1px solid red;
+//         padding: rem(20) 0;
+//     }
+//     &:nth-child(1){
+//         @include text($gray33,rem(14), 700, rem(20), rem(-0.5));
+//         display: block;
+//     }
+//     &:nth-child(2){
+//         @include text($gray99, rem(14), 400, rem(22), rem(-0.5));
+//     }
+//     &:nth-child(3){
+//         @include text($gray99, rem(14), 400, rem(22), rem(-0.5));
+//     }
+// }
+.list-type2-1{
+    li{
+        padding: rem(20) 0;
+        border-top: 1px solid $grayf1;
+    }
+    &:nth-child(1){
+        border-top: none;
+    }
+    &__title{
+        @include text($gray33, rem(14), 700, rem(20), rem(-0.5));
+    }
+    &__info{
+        @include text($gray99, rem(14), 400, rem(22), rem(-0.5));
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+        margin-top: rem(4);
+    }
+}
+.ico-email{
+    @include background('ico_email.svg', center);
+    width: rem(18);
+    height: rem(14);
+}
+
+//content5
+.block{
+    display: block;
+}
+.recruitmentBox{
+    padding: rem(24);
+    border: 4px solid #005BAC;
+}
+.heading-type5-1{
+    @include text($gray33, rem(24), 700, rem(32), rem(-0.5));
+    span{
+        font-weight: 400;
+    }
+}
+.txt-type5-1{
+    @include text($gray33, rem(18), 400, rem(24), rem(-0.5));
+}
+.btn-type5-1-group{
+    display: grid;
+    gap: rem(8);
+    margin-top: rem(24);
+}
+.btn-type5-1{
+    @include text($blue94, rem(14), 700, rem(20), rem(-0.5));
+    @include background('ico_download.svg', center right 20px);
+    @include buttonSize(100%, rem(44), rem(0), rem(20));
+    @include buttonColor(white, 1px solid $blue94, $blue94);
+    @include buttonShape(rem(24));
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+// content6
+.card-list6-1{
+    padding: rem(27);
+    &__thumb{
+        img{
+            width:100%;
+        }
+    }
+}
+.logo6-1{
+    @include background('logo_rebehayan.png', center center);
+    width: rem(134);
+    height: rem(62);
+    margin: 0 auto;
+    padding: rem(107) 0 rem(67);
+}
+.heading-type6-1{
+    @include text($gray33, rem(24), 900, null, rem(-0.5) );
+}
+.txt-type6-1{
+    @include text($gray33, rem(16), 400, null, null);
+}
+
+// content7
+.footer7-1{
+    display: grid;
+    gap: rem(22);
+    text-align: center;
+    padding: rem(42) rem(20);
+}
+$snsList : 'facebook' 'ico_facebook.png', 'naver' 'ico_naver.svg', 'insta' 'ico_insta.png';
+@each $className, $bgImage in $snsList{
+    .sns-#{$className}{
+        @include background($bgImage, center center);
+        width: rem(32);
+        height: rem(32);
+    }
+}
+.sns-group{
+    display: flex;
+    justify-content: center;
+    gap: rem(12);
+}
+.txt-type7-1{
+    @include text($gray77, rem(14), 400, rem(24), rem(-0.5));
+}
+.txt-type7-2{
+    @include text($graybe, rem(11), 400, rem(12), null);
+}
+.border-bot-none{
+    border-bottom: none;
+}
+.list-type7-1{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid $grayf1;
+    li{
+        padding: rem(14) 0;
+        border-bottom:1px solid $grayf1;
+        &:nth-child(2n){
+            border-left:1px solid $grayf1;
+        }
+        &:nth-child(5),
+        &:nth-child(6){
+            @extend .border-bot-none;
+        }
+    }
+    .desc{
+        @include text($gray33, rem(14), 500, rem(14), rem(-0.5));
+    }
+    .phone{
+        @include text($gray77, rem(14), 400, rem(14), null);
+    }
 }

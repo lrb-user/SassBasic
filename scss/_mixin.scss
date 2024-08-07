@@ -43,10 +43,44 @@
     background: url(#{$imageUrl}#{$fileName}) no-repeat $coordinate;
 }
 
-@mixin text($color, $fontSize, $fontWeight, $lineHeight, $letterSpacing){
+@mixin text($color, $fontSize, $fontWeight, $lineHeight:1, $letterSpacing){
     color:$color;
     font-size: $fontSize;
     font-weight: $fontWeight;
     line-height: $lineHeight;
     letter-spacing: $letterSpacing;
+}
+
+@mixin buttonColor($backgroundColor:white, $border, $color){
+    background-color: $backgroundColor;
+    border: $border;
+    color: $color;
+}
+
+@mixin buttonSize($width, $height, $paddingTop:null, $paddingBot) {
+    width:$width;
+    height:$height;
+    padding:$paddingTop $paddingBot;
+}
+
+@mixin buttonShape($borderRaidus:null){
+    border-radius:$borderRaidus
+}
+
+@mixin badge($backgroundColor, $color, $fontSize, $fontWeight, $lineHeight, $padding){
+    padding: $padding;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin pagination($width, $height, $borderColor){
+    width: $width;
+    height: $height;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $borderColor;
 }

@@ -1,0 +1,183 @@
+$gray33: #333;
+$gray66: #666;
+$gray77: #777;
+$gray99: #999;
+$graye1: #e1e1e1;
+$grayf7: #f7f7f7;
+$graybd: #bdbdbd;
+$yellow: #fac300;
+$skyBlue: #94C0E9;
+$blue: #005BAC;
+$white: #fff;
+$black: #000;
+
+// list1
+.list-type1-1_2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20);
+    text-align: center;
+    background-color: $grayf7;
+    li{
+        display: grid;
+        gap: rem(20);
+        padding: rem(30);
+        background-color: $white;
+    }
+    .title{
+        @include text($gray33, rem(28), 700, null, rem(-1.4));
+    }
+    .desc{
+        @include text($gray66, rem(20), 400, null, rem(-1));
+    }
+}
+.btn-more{
+    @include background('btn_more.svg', center center);
+    width:rem(44);
+    height:rem(44);
+    margin: 0 auto;
+}
+
+//list3
+.heading-type3-1_2{
+    @include text($black, rem(28), 700, null, rem(-1.4));
+}
+.list-type3-1_2{
+    display: grid;
+    gap: rem(20);
+    li{
+        padding:rem(30);
+        border:1px solid $yellow;
+        .title{
+            @include text($yellow, rem(26), 700, null, rem(-1.3));
+        }
+        .desc{
+            @include text($gray66, rem(24), 400, null, rem(-1.2));
+        }
+    }
+}
+
+//list5
+.tab-type5-1_2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    li{
+        border: 1px solid $skyBlue;
+        border-bottom: none;
+        &:nth-child(2n){
+            border-left: none;
+        }
+        //!!컴포넌트가 홀수일경우 css설정 어떻게..??
+        &:nth-child(12),
+        &:nth-child(13){
+            border-bottom: 1px solid $skyBlue;
+        }
+        > button{
+            @include text($skyBlue, rem(12), 700, rem(18), rem(-0.5));
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+            height: rem(48);
+            padding: rem(0) rem(12);
+            box-sizing: border-box;
+        }
+        &.--active > button{
+            background-color: $blue;
+            color:$white;
+        }
+    }
+}
+
+//list6
+.list-type6-1_2{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:rem(14);
+    padding: rem(20);
+    li{ 
+        border:1px solid $graybd;
+        &:nth-child(7n){
+            grid-column:1/-1;
+        }
+        a{
+            @include text($gray33, rem(14), 700, rem(20), rem(-0.5));
+            display: inline-flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: rem(14) rem(12);
+            box-sizing: border-box;
+            &::after{
+                @include background('btn_right.svg', center right);
+                width:rem(8);
+                height:rem(13);
+                display:block;
+                content:"";
+            }
+        }
+    }    
+}
+
+//list7
+.pagination{
+    display: flex;
+    gap: rem(4);
+    li{
+        @include pagination(rem(36), rem(36), $graye1);
+        @include text($gray77, rem(14), 400, rem(14), null);
+        &.--active{
+            color: $blue;
+            border: 1px solid $blue;
+        }
+        &:nth-child(1),
+        &:nth-child(12){
+            border: none;
+            @include background('btn_right.svg', center center);
+        }
+        button{
+            width:100%;
+            height: 100%;
+        }
+    }
+}
+
+//list9
+.list-type9-1_2{
+    display: grid;
+    gap: rem(48);
+    padding:rem(20);
+    &__thumb{
+        position: relative;
+        img{
+            width: 100%;
+        }
+    }
+    &__content{
+        margin-top: rem(20);
+    }
+    &__title{
+        @include text($gray33, rem(20), 700, rem(20), rem(-0.5));
+    }
+    &__desc{
+        @include text($gray99, rem(16), 400, null, null);
+        margin-top: 20px;
+    }
+    &__ect{
+        @include text($gray99, rem(12), 400, null, null);
+        display: flex;
+        gap:rem(10);
+        margin-top: 16px;
+        .view{
+            b{
+                color:$black;
+            }
+        }
+    }
+}
+.badge{
+    @include badge($yellow, $white, rem(12), 700, rem(13), rem(7) rem(11));
+    position: absolute;
+    top: 0;
+    right: 0;
+}
